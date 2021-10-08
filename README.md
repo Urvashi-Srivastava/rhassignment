@@ -1,5 +1,4 @@
 # Google Drive Assignment
-                                            |
 
 ## Prerequisite
 
@@ -29,6 +28,7 @@ This automation framework interacts with google drive api.
 ## Running the test
 - Clone the repo
 ```
+https://github.com/Urvashi-Srivastava/rhassignment.git
 ```
 - npm i
 - npm run wdio
