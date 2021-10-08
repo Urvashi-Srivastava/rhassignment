@@ -1,6 +1,7 @@
 import { pathExists, removeSync } from 'fs-extra'
 const { google } = require('googleapis');
-const fs = require('fs');
+const fs = require('fs')
+const fsExt = require('fs').promises
 require('dotenv').config()
 /**
  * sub page methods for a specific page
@@ -86,12 +87,19 @@ export default function fileDownloadGoogledrive() {
     }
 
     async function isFileDownloaded(fileName) {
-        let fileExist;
-        const path = `./downloadedFile/${fileName}`;
-        fileExist = await pathExists(path);
-        //delete the file so that automation can run smoothly using the same data
-        removeSync(path)
-        return fileExist;
+        let value = false;
+        try {
+            const data = await fsExt.readFile(`./downloadedFile/${fileName}`);
+            // verifying if file is empty or not
+            if (data.length > 0) {
+                value = true
+            }
+
+        } catch (error) {
+            console.error(`Got an error trying to read the file: ${error.message}`);
+        }
+
+        return value
     }
     return {
         setDriveWithCredentials,

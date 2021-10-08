@@ -27,6 +27,7 @@ When(/^I download ([^"]*) from google drive twice$/, async (file) => {
 
 Then(/^([^"]*) is downloaded to local machine$/, async (file) => {
     const value = await fileDownloadGoogleDrive.isFileDownloaded(file);
+    console.log("Page object return value", value)
     expect(value).toEqual(true);
 });
 
