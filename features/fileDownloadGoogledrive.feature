@@ -20,7 +20,9 @@ Feature: As a sdet, I want to download files from google drive
     When I download abc.jpg from google drive twice
     Then I get an error message: File with same name already exists
 
-#verification for doc file is yet not done
+# Scenario to verify for doc file is yet not done
+# Scenario to verify the file size
+
 
 
 
